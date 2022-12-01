@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Prova = sequelize.define(
-    "prova",
+  const Product = sequelize.define(
+    "product",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
       },
       name: DataTypes.STRING,
-      numbers: DataTypes.INTEGER,
-      email: DataTypes.INTEGER,
+      value: DataTypes.DOUBLE,
     },
     {
       timestamps: false,
@@ -17,5 +16,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  return Prova;
+  return Product;
 };
