@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12
+    container_name: prova_node
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSGRES_DB=prova_node
+    volume:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '5432:5432'
+
+  app:
+    image: joseaugustooliveirapins/api-node-prova
+    command: nmp start
+    ports:
+      - '8084:8084'
+    workdir_dir: /app
+    volumes:
+      - .:/app
+    depends_on:
+      - db
