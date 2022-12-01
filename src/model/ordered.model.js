@@ -9,7 +9,16 @@ module.exports = (sequelize, DataTypes) => {
         },
         customer_id: DataTypes.INTEGER,
         product_id: DataTypes.INTEGER,
-        order_date: DataTypes.STRING,  
+        order_date: DataTypes.STRING, 
+
+        references: { model: "customer", key: "customer_id" }
+        onDelete: "CASCADE",
+        onCreate: "CASCADE",
+
+        references: { model: "product", key: "product_id" }
+        onDelete: "CASCADE",
+        onCreate: "CASCADE",
+
       },
       {
         timestamps: false,
