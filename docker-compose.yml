@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: postgres:12
-    container_name: prova_node
+prova_node    container_name: 
     restart: always
     environment:
       - POSTGRES_USER=admin
